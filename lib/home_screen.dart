@@ -4,6 +4,7 @@ void main() => runApp(const HomeScreen());
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
+  final int number = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -28,46 +29,30 @@ class HomeScreen extends StatelessWidget {
                     style:
                         TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
               ),
-              Center(
-                child: Expanded(
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Expanded(
-                          child: OutlinedButton(
-                              onPressed: () {},
-                              child: const Text('1',
-                                  style: TextStyle(fontSize: 42))),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Expanded(
-                            child: OutlinedButton(
-                                onPressed: () {},
-                                child: const Text('2',
-                                    style: TextStyle(fontSize: 42)))),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Expanded(
-                            child: OutlinedButton(
-                                onPressed: () {},
-                                child: const Text('3',
-                                    style: TextStyle(fontSize: 42)))),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Expanded(
-                            child: OutlinedButton(
-                                onPressed: () {},
-                                child: const Text('+',
-                                    style: TextStyle(fontSize: 42)))),
-                      ),
-                    ],
-                  ),
-                ),
+              const SizedBox(height: 50),
+              Row(
+                children: [
+                  _creatorButton('1'),
+                  _creatorButton('2'),
+                  _creatorButton('3'),
+                  _creatorButton('-'),
+                ],
+              ),
+              Row(
+                children: [
+                  _creatorButton('4'),
+                  _creatorButton('5'),
+                  _creatorButton('6'),
+                  _creatorButton('+'),
+                ],
+              ),
+              Row(
+                children: [
+                  _creatorButton('7'),
+                  _creatorButton('8'),
+                  _creatorButton('9'),
+                  _creatorButton('X'),
+                ],
               ),
             ],
           ),
@@ -75,4 +60,21 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _creatorButton(String buttonText) {
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Expanded(
+        child: ElevatedButton(
+      style: ButtonStyle(
+          elevation: MaterialStateProperty.all(10),
+          backgroundColor: MaterialStateProperty.all(Colors.green)),
+      onPressed: () {},
+      child: Text(
+        buttonText,
+        style: const TextStyle(fontSize: 52, color: Colors.black),
+      ),
+    )),
+  );
 }
