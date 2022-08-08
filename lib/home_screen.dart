@@ -1,12 +1,37 @@
 import 'package:flutter/material.dart';
 
-String output = '0';
-pressedButton(String buttonText) {
-  output = buttonText;
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+String output = '0';
+
+class _HomeScreenState extends State<HomeScreen> {
+  pressedButton(String buttonText) {
+    output = buttonText;
+    setState(() {});
+  }
+
+  Widget _creatorButton(String buttonText) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: ElevatedButton(
+        style: ButtonStyle(
+            elevation: MaterialStateProperty.all(10),
+            backgroundColor: MaterialStateProperty.all(Colors.grey[100])),
+        onPressed: () {
+          pressedButton(buttonText);
+        },
+        child: Text(
+          buttonText,
+          style: const TextStyle(fontSize: 52, color: Colors.black),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +62,8 @@ class HomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   _creatorButton('C'),
-                  const Expanded(child: SizedBox(height: 50)),
-                  const Expanded(child: SizedBox(height: 50)),
+                  const SizedBox(height: 50, width: 83),
+                  const SizedBox(height: 50, width: 83),
                   _creatorButton('/'),
                 ],
               ),
@@ -84,26 +109,4 @@ class HomeScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget _creatorButton(String buttonText) {
-  return Expanded(
-    child: Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: ElevatedButton(
-        style: ButtonStyle(
-            elevation: MaterialStateProperty.all(10),
-            backgroundColor: MaterialStateProperty.all(Colors.grey[100])),
-        onPressed: () {
-          pressedButton(buttonText);
-          // ignore: avoid_print
-          print(buttonText);
-        },
-        child: Text(
-          buttonText,
-          style: const TextStyle(fontSize: 52, color: Colors.black),
-        ),
-      ),
-    ),
-  );
 }
