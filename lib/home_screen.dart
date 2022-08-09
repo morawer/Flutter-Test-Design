@@ -9,10 +9,62 @@ class HomeScreen extends StatefulWidget {
 
 String output = '0';
 
+String _output = '0';
+double num1 = 0.0;
+double num2 = 0.0;
+String operand = "";
+
 class _HomeScreenState extends State<HomeScreen> {
   pressedButton(String buttonText) {
-    output = buttonText;
-    setState(() {});
+    if (buttonText == 'C') {
+      _output = '0';
+      num1 = 0.0;
+      num2 = 0.0;
+      operand = "";
+    } else if (buttonText == '+' ||
+        buttonText == '-' ||
+        buttonText == 'x' ||
+        buttonText == '/') {
+      num1 = double.parse(output);
+      operand = buttonText;
+      _output = "0";
+    } else if (buttonText == ".") {
+      if (_output.contains(".")) {
+        // ignore: avoid_print
+        print("Already contains a decimals");
+        return;
+      } else {
+        _output = _output + buttonText;
+      }
+    } else if (buttonText == "=") {
+      num2 = double.parse(output);
+
+      if (operand == "+") {
+        _output = (num1 + num2).toString();
+      }
+      if (operand == "-") {
+        _output = (num1 - num2).toString();
+      }
+      if (operand == "x") {
+        _output = (num1 * num2).toString();
+      }
+      if (operand == "/") {
+        _output = (num1 / num2).toString();
+      }
+
+      num1 = 0.0;
+      num2 = 0.0;
+      operand = "";
+    } else {
+      _output = _output + buttonText;
+    }
+
+    // ignore: avoid_print
+    print(_output);
+
+    setState(() {
+      output = double.parse(_output).toStringAsFixed(2);
+    });
   }
 
   Widget _creatorButton(String buttonText) {
