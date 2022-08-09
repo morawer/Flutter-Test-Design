@@ -46,16 +46,17 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-              Container(
-                alignment: const Alignment(0.8, 0.8),
-                height: 250.0,
-                decoration: BoxDecoration(
-                    border: Border.all(width: 3.0, color: Colors.black12),
-                    color: Colors.grey[100],
-                    borderRadius: BorderRadius.circular(15.0)),
-                child: Text(output,
-                    style: const TextStyle(
-                        fontSize: 56, fontWeight: FontWeight.bold)),
+              Expanded(
+                child: Container(
+                  alignment: const Alignment(0.8, 0.8),
+                  decoration: BoxDecoration(
+                      border: Border.all(width: 3.0, color: Colors.black12),
+                      color: Colors.grey[100],
+                      borderRadius: BorderRadius.circular(15.0)),
+                  child: Text(output,
+                      style: const TextStyle(
+                          fontSize: 56, fontWeight: FontWeight.bold)),
+                ),
               ),
               const SizedBox(height: 30),
               Row(
@@ -97,10 +98,9 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Expanded(child: SizedBox(height: 80)),
-                  Expanded(
-                      child: SizedBox(height: 80, child: _creatorButton('0'))),
-                  SizedBox(height: 80, width: 185, child: _creatorButton('=')),
+                  const SizedBox(height: 80, width: 83),
+                  SizedBox(height: 80, child: _creatorButton('0')),
+                  SizedBox(height: 80, width: 166, child: _creatorButton('=')),
                 ],
               ),
             ],
