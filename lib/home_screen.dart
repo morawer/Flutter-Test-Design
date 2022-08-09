@@ -71,10 +71,10 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _creatorButton('1'),
-                  _creatorButton('2'),
-                  _creatorButton('3'),
-                  _creatorButton('-'),
+                  _creatorButton('7'),
+                  _creatorButton('8'),
+                  _creatorButton('9'),
+                  _creatorButton('x'),
                 ],
               ),
               Row(
@@ -89,16 +89,16 @@ class _HomeScreenState extends State<HomeScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _creatorButton('7'),
-                  _creatorButton('8'),
-                  _creatorButton('9'),
-                  _creatorButton('x'),
+                  _creatorButton('1'),
+                  _creatorButton('2'),
+                  _creatorButton('3'),
+                  _creatorButton('-'),
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 80, width: 83),
+                  SizedBox(height: 80, child: _creatorButton('.')),
                   SizedBox(height: 80, child: _creatorButton('0')),
                   SizedBox(height: 80, width: 166, child: _creatorButton('=')),
                 ],
