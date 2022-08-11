@@ -10,16 +10,17 @@ class HomeScreen extends StatefulWidget {
 String output = '0';
 
 String _output = '0';
-double num1 = 0.0;
-double num2 = 0.0;
+double num1 = 0;
+double num2 = 0;
 String operand = "";
+String numFinal = ' ';
 
 class _HomeScreenState extends State<HomeScreen> {
   pressedButton(String buttonText) {
     if (buttonText == 'C') {
       _output = '0';
-      num1 = 0.0;
-      num2 = 0.0;
+      num1 = 0;
+      num2 = 0;
       operand = "";
     } else if (buttonText == '+' ||
         buttonText == '-' ||
@@ -52,8 +53,8 @@ class _HomeScreenState extends State<HomeScreen> {
         _output = (num1 / num2).toString();
       }
 
-      num1 = 0.0;
-      num2 = 0.0;
+      num1 = 0;
+      num2 = 0;
       operand = "";
     } else {
       _output = _output + buttonText;
@@ -63,7 +64,11 @@ class _HomeScreenState extends State<HomeScreen> {
     print(_output);
 
     setState(() {
-      output = double.parse(_output).toStringAsFixed(2);
+      if (_output.contains('.')) {
+        output = double.parse(_output).toString();
+      } else {
+        output = int.parse(_output).toString();
+      }
     });
   }
 
