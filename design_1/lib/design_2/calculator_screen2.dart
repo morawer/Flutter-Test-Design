@@ -100,6 +100,7 @@ class _CalculatorScreen2State extends State<CalculatorScreen2> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: Colors.black),
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
