@@ -1,3 +1,4 @@
+import 'package:calculator/design_2/calculator_screen2.dart';
 import 'package:flutter/material.dart';
 
 import 'design_1/calculator_screen1.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       home: const HomeScreen(),
       routes: {
         "calculatorDesign1": (_) => const CalculatorScreen1(),
+        "calculatorDesign2": (_) => const CalculatorScreen2(),
       },
     );
   }
