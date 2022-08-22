@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CalculatorScreen1 extends StatefulWidget {
-  const CalculatorScreen1({Key? key}) : super(key: key);
+class CalculatorScreen2 extends StatefulWidget {
+  const CalculatorScreen2({Key? key}) : super(key: key);
 
   @override
-  State<CalculatorScreen1> createState() => _CalculatorScreen1State();
+  State<CalculatorScreen2> createState() => _CalculatorScreen2State();
 }
 
 String output = '0';
@@ -15,7 +15,7 @@ double num2 = 0;
 String operand = "";
 String numFinal = ' ';
 
-class _CalculatorScreen1State extends State<CalculatorScreen1> {
+class _CalculatorScreen2State extends State<CalculatorScreen2> {
   pressedButton(String buttonText) {
     if (buttonText == 'C') {
       _output = '0';
