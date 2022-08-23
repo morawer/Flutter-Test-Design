@@ -1,4 +1,4 @@
-#Mon Aug 22 19:36:42 CEST 2022
+#Tue Aug 23 20:48:26 CEST 2022
 base.0=/home/dani/Flutter_proyects/calculator/design_1/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

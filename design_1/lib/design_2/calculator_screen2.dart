@@ -90,13 +90,13 @@ class _CalculatorScreen2State extends State<CalculatorScreen2> {
             title: const Text('Calculadora'),
           ),
           body: Container(
-            margin: const EdgeInsets.symmetric(horizontal: 10.0),
+            margin: const EdgeInsets.symmetric(horizontal: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Container(
                     alignment: Alignment.centerRight,
-                    margin: const EdgeInsets.only(bottom: 20),
+                    margin: const EdgeInsets.only(bottom: 15),
                     width: double.infinity,
                     child:
                         const Text('RESULT', style: TextStyle(fontSize: 36))),
@@ -104,65 +104,85 @@ class _CalculatorScreen2State extends State<CalculatorScreen2> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
-                      child: TextButton(
-                          style: TextButton.styleFrom(
-                              backgroundColor: Colors.blue,
-                              primary: Colors.white,
-                              shape: const StadiumBorder()),
-                          child: const SizedBox(
-                              height: 65,
-                              width: 65,
-                              child: Center(
-                                  child: Text('1',
-                                      style: TextStyle(
-                                          fontSize: 36,
-                                          fontWeight: FontWeight.bold)))),
-                          onPressed: () {}),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
-                      child: TextButton(
-                          style: TextButton.styleFrom(
-                              backgroundColor: Colors.blue,
-                              primary: Colors.white,
-                              shape: const StadiumBorder()),
-                          child: const SizedBox(
-                              height: 65,
-                              width: 65,
-                              child: Center(
-                                  child: Text('2',
-                                      style: TextStyle(
-                                          fontSize: 36,
-                                          fontWeight: FontWeight.bold)))),
-                          onPressed: () {}),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
-                      child: TextButton(
-                          style: TextButton.styleFrom(
-                              backgroundColor: Colors.blue,
-                              primary: Colors.white,
-                              shape: const StadiumBorder()),
-                          child: const SizedBox(
-                              height: 65,
-                              width: 65,
-                              child: Center(
-                                  child: Text('3',
-                                      style: TextStyle(
-                                          fontSize: 36,
-                                          fontWeight: FontWeight.bold)))),
-                          onPressed: () {}),
-                    )
+                    ButtonCreator(text: 'AC', bgColor: const Color(0xFFB0B1B0)),
+                    ButtonCreator(
+                        text: '+/-', bgColor: const Color(0xFFB0B1B0)),
+                    ButtonCreator(text: '%', bgColor: const Color(0xFFB0B1B0)),
+                    ButtonCreator(text: '/', bgColor: const Color(0xFFFD9605)),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ButtonCreator(text: '7'),
+                    ButtonCreator(text: '8'),
+                    ButtonCreator(text: '9'),
+                    ButtonCreator(text: 'X', bgColor: const Color(0xFFFD9605)),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ButtonCreator(text: '4'),
+                    ButtonCreator(text: '5'),
+                    ButtonCreator(text: '6'),
+                    ButtonCreator(text: '-', bgColor: const Color(0xFFFD9605)),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ButtonCreator(text: '1'),
+                    ButtonCreator(text: '2'),
+                    ButtonCreator(text: '3'),
+                    ButtonCreator(text: '+', bgColor: const Color(0xFFFD9605)),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ButtonCreator(text: '0'),
+                    ButtonCreator(text: ',', bgColor: const Color(0xFFB0B1B0)),
+                    ButtonCreator(text: '=', bgColor: const Color(0xFFFD9605)),
                   ],
                 )
               ],
             ),
           )),
+    );
+  }
+}
+
+class ButtonCreator extends StatelessWidget {
+  final String text;
+  final Color bgColor;
+  // ignore: prefer_const_constructors_in_immutables
+  ButtonCreator({
+    Key? key,
+    required this.text,
+    bgColor,
+  })  : bgColor = bgColor ?? const Color(0xff333333),
+        super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+      child: TextButton(
+          style: TextButton.styleFrom(
+              backgroundColor: bgColor,
+              primary: Colors.white,
+              shape: const StadiumBorder()),
+          child: SizedBox(
+              height: 55,
+              width: 55,
+              child: Center(
+                  child: Text(text,
+                      style: const TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                      )))),
+          onPressed: () {}),
     );
   }
 }
